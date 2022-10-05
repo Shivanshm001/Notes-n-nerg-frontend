@@ -9,7 +9,7 @@ export default function Navbar() {
         <div className=' w-full py-3 px-4 sm:px-8 flex flex-wrap justify-between  items-center '>
           <Link to="/" title='Home'>
             <span className='flex gap-2 justify-center items-center'>
-              <img className='bg-green-400 py-1 px-2 rounded w-[2.5rem] bg-opacity-90 outline-gray-300 hover:outline' src={logo} /> <p className='text-lg font-semibold hidden sm:inline'>BCA NOTES</p>
+              <img className='bg-green-400 py-1 px-2 rounded w-[2.5rem] bg-opacity-90 outline-gray-300 hover:outline' src={logo} alt="logo_bca_notes" /> <p className='text-lg font-semibold hidden sm:inline'>BCA NOTES</p>
             </span>
           </Link>
 

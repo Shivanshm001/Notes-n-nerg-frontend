@@ -6,7 +6,7 @@ import ToolsUsed from './ToolsUsed'
 export default function About() {
     return (
         <>
-            <main className='px-4 min-h-screen bg-gray-50'>
+            <main className='px-4 min-h-screen bg-gray-100'>
                 <TextContent />
                 <FeedbackForm />
                 <ToolsUsed />

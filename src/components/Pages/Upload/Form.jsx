@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Spinner from './Spinner';
 import axios from 'axios';
 import Input from './Input';
+import {baseUrl} from '../../../websiteUrl';
 
 
 function Label(props) {
@@ -19,7 +20,6 @@ export default function Form({ filetype: fileT }) {
   const [isSubmiting, setIsSubmiting] = useState(undefined);
   const [file, setFile] = useState();
   const [link, setLink] = useState("");
-  console.log(link)
   const navigate = useNavigate();
 
   async function handleSubmit(event) {
@@ -35,7 +35,7 @@ export default function Form({ filetype: fileT }) {
     formData.append("sem", textData.sem);
     formData.append("type", fileT)
     try {
-      const response = await axios.post(`https://notes-n-berg.onrender.com/upload/${fileT}`, formData, { headers: "ContentType: multipart/form-data" });
+      const response = await axios.post(`${baseUrl}/upload/${fileT}`, formData, { headers: "ContentType: multipart/form-data" });
       if (response.status === 200)
         navigate("/");
 
@@ -121,7 +121,6 @@ export default function Form({ filetype: fileT }) {
 
 
       <div className='w-full flex justify-between'>
-        <button className={`${isSubmiting ? "bg-blue-400" : "bg-blue-500"} font-semibold hover:bg-blue-700 rounded text-white py-2 px-3`}>{isSubmiting ? <h1> Uploading...</h1> : <h1><Spinner />Upload</h1>}</button>
         <div>
           <select required={true} value={textData.sem} onChange={handleTextInput} name="sem" className='border border-blue-500 focus:outline-none rounded px-2 text-sm'>
             <option value="">Semester</option>
@@ -135,7 +134,7 @@ export default function Form({ filetype: fileT }) {
             <option value="sem 8">Sem 8</option>
           </select>
         </div>
-
+        <button className={`${isSubmiting ? "bg-blue-400" : "bg-blue-500"} font-semibold hover:bg-blue-700 rounded text-white py-2 px-3`}>{isSubmiting ? <h1> Uploading...</h1> : <h1><Spinner />Upload</h1>}</button>
       </div>
     </form>
   )

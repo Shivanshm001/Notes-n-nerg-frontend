@@ -1,14 +1,14 @@
 import React, { useState,useEffect } from 'react';
 import Card from './Card';
 import axios from 'axios';
-
+import {baseUrl} from "../../../websiteUrl";
 
 export default function Posts() {
     const [posts,setPosts] = useState([]);
 
     useEffect(()=>{
        async function getAllPostsFromServer(){
-        const {data} = await axios.get("https://notes-n-berg.onrender.com/posts");
+        const {data} = await axios.get(`${baseUrl}/posts`);
         setPosts(data);
        }
        getAllPostsFromServer();
